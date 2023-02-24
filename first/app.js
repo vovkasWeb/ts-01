@@ -6,12 +6,12 @@ let d = true;
 let res = revenue + bonus;
 console.log(res);
 function getFullName(firstname, surname) {
-    if (typeof firstname !== 'string') {
-        throw new Error('!!!!!');
-    }
+    // if(typeof firstname !=='string'){
+    // 	throw new Error('!!!!!');
+    // }
     return `${firstname} ${surname}`;
 }
 const getFullNameArrow = (firstname, surname) => {
     return `${firstname} ${surname}`;
 };
-console.log(getFullName(true, false));
+console.log(getFullName('vova', 'orlovsky'));
