@@ -79,39 +79,135 @@ fetchWithAuyt('s', 'get');
 // 	}
 // }
 
+// interface User {
+// 	name: string,
+// 	age: number,
+// 	skills: string[]
+
+// 	log: (id: number) => string;
+// }
+// interface Role {
+// 	roleId: number,
+// }
+// type User2 = {
+// 	name: string,
+// 	age: number,
+// 	skills: string[]
+
+// 	log: (id: number) => string;
+// }
+
+// interface UserWithRole extends User, Role {
+
+// }
+// let user: UserWithRole = {
+// 	name: 'asd',
+// 	age: 33,
+// 	skills: ['1', '2'],
+// 	roleId: 1,
+// 	log(id) {
+// 		return '';
+// 	}
+// }
+// interface UserDic {
+// 	[index: number]: User
+// }
+// type UserDic2 = {
+// 	[index: number]: User
+// }
+
+
+
+// interface User {
+// 	name: string
+// }
+
+// interface User {
+// 	age: number
+// }
+
+// type User = {
+// 	name: string
+// }
+
+// type User  ={
+// 	age: number
+// }
+
+
+// const user: User={
+// 	name: 'as',
+// 	age: 33
+// }
+
+// type ID = string | number;
+
+// interface IDI {
+// 	ID: string | number;
+// }
+
 interface User {
-	name: string,
-	age: number,
-	skills: string[]
-
-	log: (id: number) => string;
-}
-interface Role {
-	roleId: number,
-}
-type User2 = {
-	name: string,
-	age: number,
-	skills: string[]
-
-	log: (id: number) => string;
+	login: string;
+	password?: string | undefined;
 }
 
-interface UserWithRole extends User, Role {
-
+const user: User = {
+	login: '@rfrr',
+	password: '1'
 }
-let user: UserWithRole = {
-	name: 'asd',
-	age: 33,
-	skills: ['1', '2'],
-	roleId: 1,
-	log(id) {
-		return '';
+
+function multiply(first: number, second?: number): number {
+	if (!second) {
+		return first * first;
 	}
+	return first * second;
 }
-interface UserDic {
-	[index: number]: User
+
+multiply(5);
+
+
+
+interface UserPro {
+	login: string;
+	password?: {
+		type: 'primaty' | 'secondary'
+	};
 }
-type UserDic2 = {
-	[index: number]: User
+
+function testPass(user: UserPro) {
+	const t = user.password?.type;
+}
+
+function test(param?: string) {
+	const t = param ?? multiply(5);
+}
+
+interface IPayment {
+	sum: number;
+	form: number;
+	to: number;
+}
+enum PaymantStatus {
+	Success = "success",
+	Failed = "failed"
+}
+interface IPaymentRequst extends IPayment { }
+
+
+interface IDataSuccess extends IPayment {
+	databaseId: number,
+	
+}
+interface IDataFailed {
+	errorMessage: number,
+	erorCode: number,
+}
+interface IResponseSuccess {
+	status: PaymantStatus.Success;
+	data: IDataSuccess;
+}
+
+interface IResponseFailed {
+	status: PaymantStatus.Failed;
+	data: IDataFailed;
 }
